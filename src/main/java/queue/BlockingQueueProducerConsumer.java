@@ -5,6 +5,9 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 /**
  * 阻塞队列实现生产者消费者
+ *
+ * 1. 生产者线程，消费者线程
+ * 2. 线程里创建死循环，获取不到元素时线程阻塞
  */
 public class BlockingQueueProducerConsumer {
 

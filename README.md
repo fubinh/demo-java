@@ -20,6 +20,17 @@
 
 - FieldUnderlineConvertHump：数据库下划线转DTO驼峰，一般数据库字段如demo_x1下划线分割,java程序dto使用demoX1驼峰形式
 
-## queue
+## 并发
+
+### queue
 
 - BlockingQueueProducerConsumer：ArrayBlockingQueue实现生产者消费者
+
+### lock
+
+- WaitNotifyDemo：Object的wait，notify机制模拟
+- ConditionDemo：Condition的await和signal方法
+
+### 同步器实现
+
+- CountDownLatchDemo：（闭锁）倒计时锁存器，在完成一组正在其他线程中执行的操作之前，它允许一个或多个线程一直等待。
