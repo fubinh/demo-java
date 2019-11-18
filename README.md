@@ -20,3 +20,6 @@
 
 - FieldUnderlineConvertHump：数据库下划线转DTO驼峰，一般数据库字段如demo_x1下划线分割,java程序dto使用demoX1驼峰形式
 
+## queue
+
+- BlockingQueueProducerConsumer：ArrayBlockingQueue实现生产者消费者
