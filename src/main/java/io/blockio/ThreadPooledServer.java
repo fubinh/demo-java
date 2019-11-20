@@ -1,13 +1,15 @@
-package blockio;
+package io.blockio;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by fubin on 2019-11-17.
  */
-public class MutiThreadedServer implements Runnable {
+public class ThreadPooledServer implements Runnable {
     // 服务端口
     protected int serverPort = 8080;
     // 服务端Socket
@@ -16,12 +18,12 @@ public class MutiThreadedServer implements Runnable {
     protected boolean isStopped = false;
     // 运行的线程
     protected Thread runningThread = null;
-
+    // 初始化线程池
+    protected ExecutorService threadPool = Executors.newFixedThreadPool(10);
     // 构造函数设置端口
-    public MutiThreadedServer(int port) {
+    public ThreadPooledServer(int port) {
         this.serverPort = port;
     }
-
     // 线程构建服务
     public void run() {
         // 当前线程的引用保存到变量中
@@ -38,26 +40,24 @@ public class MutiThreadedServer implements Runnable {
                 clientSocket = this.serverSocket.accept();
             } catch (IOException e) {
                 if (isStopped()) {
-                    System.out.println("Muti Server Stopped.");
+                    System.out.println("Thread Pooled Server Stopped.");
                     return;
                 }
                 throw new RuntimeException("Error accepting client connection", e);
             }
             try {
                 // 处理客户端请求
-                new Thread(new WorkerRunnable(clientSocket,"Muti Thread Server")).start();
+                this.threadPool.execute(new WorkerRunnable(clientSocket,"Thread Pooled Server"));
             } catch (Exception e) {
                 // log exception and go on to next request.
             }
         }
+        this.threadPool.shutdown();
         System.out.println("Server Stopped.");
     }
-
-
     private synchronized boolean isStopped() {
         return this.isStopped;
     }
-
     public synchronized void stop() {
         this.isStopped = true;
         try {
@@ -66,7 +66,6 @@ public class MutiThreadedServer implements Runnable {
             throw new RuntimeException("Error closing server", e);
         }
     }
-
     private void openServerSocket() {
         try {
             this.serverSocket = new ServerSocket(this.serverPort);
@@ -74,9 +73,8 @@ public class MutiThreadedServer implements Runnable {
             throw new RuntimeException("Cannot open port 8080", e);
         }
     }
-
     public static void main(String[] args) {
-        MutiThreadedServer server = new MutiThreadedServer(9000);
+        ThreadPooledServer server = new ThreadPooledServer(9000);
         new Thread(server).start();
         try {
             Thread.sleep(1000 * 1000);

@@ -1,4 +1,4 @@
-package blockio;
+package io.blockio;
 
 import java.io.IOException;
 import java.io.InputStream;

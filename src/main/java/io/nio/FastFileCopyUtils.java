@@ -1,4 +1,4 @@
-package nio;
+package io.nio;
 
 import java.io.File;
 import java.io.FileInputStream;

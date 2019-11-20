@@ -1,4 +1,4 @@
-package lock;
+package concurrent.lock;
 
 /**
  * Object的wait，notify机制模拟
