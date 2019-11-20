@@ -3,7 +3,7 @@ package snowflake;
 /**
  * Created by fubin on 2019-11-17.
  */
-public class SnowflakeIdTest {
+public class SnowflakeIdDemo {
     /** 测试 */
 
     public  static  void  main(String[]  args)  {

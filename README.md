@@ -32,11 +32,10 @@
 
 - FastFileCopyUtils：使用nio进行快速文件拷贝
 
-# 算法
 
-## id-generate
+# ❄️雪花算法
 
-- SnowflakeIdWorker,SnowflakeIdTest : Twitter 雪花算法生成唯一序列号
+- SnowflakeIdWorker,SnowflakeIdDemo : Twitter 雪花算法生成唯一序列号
 
 # 字符串处理
 
