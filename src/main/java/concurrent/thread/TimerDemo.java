@@ -1,4 +1,4 @@
-package concurrnet.thread;
+package concurrent.thread;
 
 import java.util.Timer;
 import java.util.TimerTask;

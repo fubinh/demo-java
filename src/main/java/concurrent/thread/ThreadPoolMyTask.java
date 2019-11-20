@@ -1,4 +1,4 @@
-package concurrnet.thread;
+package concurrent.thread;
 
 public class ThreadPoolMyTask implements Runnable {
 

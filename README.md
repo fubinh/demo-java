@@ -1,5 +1,25 @@
 
-# Java Code Demo
+> Java Code Demo
+
+# 并发
+
+## queue
+
+- BlockingQueueProducerConsumer：ArrayBlockingQueue实现生产者消费者
+- PriorityQueueProducerConsumerDemo：优先队列
+
+## lock
+
+- WaitNotifyDemo：Object的wait，notify机制模拟
+- ConditionDemo：Condition的await和signal方法
+
+## AQS
+
+- CountDownLatchDemo：（闭锁）倒计时锁存器，在完成一组正在其他线程中执行的操作之前，它允许一个或多个线程一直等待。
+- CyclicBarrierDemo，CyclicBarrierRepeatDemo，CyclicBarrierRunnableDemo：
+- SemaphoreDemo
+
+# IO
 
 ## blockio
 
@@ -12,28 +32,15 @@
 
 - FastFileCopyUtils：使用nio进行快速文件拷贝
 
+# 算法
+
 ## id-generate
 
 - SnowflakeIdWorker,SnowflakeIdTest : Twitter 雪花算法生成唯一序列号
 
-## 字符串处理
+# 字符串处理
 
 - FieldUnderlineConvertHump：数据库下划线转DTO驼峰，一般数据库字段如demo_x1下划线分割,java程序dto使用demoX1驼峰形式
 
-## 并发
 
-### queue
 
-- BlockingQueueProducerConsumer：ArrayBlockingQueue实现生产者消费者
-- PriorityQueueProducerConsumerDemo：优先队列
-
-### lock
-
-- WaitNotifyDemo：Object的wait，notify机制模拟
-- ConditionDemo：Condition的await和signal方法
-
-### AQS
-
-- CountDownLatchDemo：（闭锁）倒计时锁存器，在完成一组正在其他线程中执行的操作之前，它允许一个或多个线程一直等待。
-- CyclicBarrierDemo，CyclicBarrierRepeatDemo，CyclicBarrierRunnableDemo：
-- SemaphoreDemo
